@@ -1,0 +1,17 @@
+.card-front{
+    width: 200px;
+    height: 270px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-front .image-person{
+    width: 80%;
+    height: 80%;
+}
+.card-front .name-person{
+    font-size: 18px;
+}
