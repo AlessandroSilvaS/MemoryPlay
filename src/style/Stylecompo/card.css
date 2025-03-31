@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    display: none;
 }
 .card-front .image-person{
     width: 80%;
@@ -16,6 +17,15 @@
 .card-front .name-person{
     font-size: 18px;
 }
-.card-back{
-    display: none;
+.card-back {
+    width: 200px;
+    height: 270px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.card-back img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
 }

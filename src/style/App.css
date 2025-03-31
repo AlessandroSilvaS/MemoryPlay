@@ -1,5 +1,5 @@
 .grid{
-    width: 80%;
+    width: 82%;
     min-height: 58vh;
     padding: 10px;
     border: 1px solid #000000;
@@ -7,7 +7,7 @@
     margin: 0 auto;
     margin-top: 8%;
     display: grid;
-    grid-template-columns: repeat(7, 200px);
+    grid-template-columns: repeat(6, 200px);
     grid-template-rows: 270px auto;
     gap: 20px;
 }
