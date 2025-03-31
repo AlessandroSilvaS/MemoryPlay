@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .card-front .image-person{
     width: 80%;
@@ -14,4 +15,7 @@
 }
 .card-front .name-person{
     font-size: 18px;
+}
+.card-back{
+    display: none;
 }
