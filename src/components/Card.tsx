@@ -1,50 +1,40 @@
 import '../style/Stylecompo/card.css'
-// import { useState } from 'react'
-// import { useRef } from 'react'
+import { useState } from 'react'
 
 const Card = () => {
 
-    // const [displayCardB, setDisplayCardB] = useState("none")
-    // const [displayCardF, setDisplayCardF] = useState("flex")
+    const [url, setUrl] = useState("/public/img/logo.jpeg")
 
-    // const frontRef = useRef(null)
-    // const backRef = useRef(null)
+    const cardElement = document.querySelectorAll(".card-front")
+    const cardElementsArrays = Array.from(cardElement) as HTMLDivElement[]
 
-    const cardFront = document.querySelectorAll("card-front")
-    const cardFrontElements = Array.from(cardFront) as HTMLDivElement[]
-    const cardBack = document.querySelectorAll(".card-back")
-    const cardBackElements = Array.from(cardBack) as HTMLDivElement[]
 
-    if(cardBack.length > 0){
+        cardElementsArrays.map((element) => {
 
-        cardBackElements.forEach((element, index) => {
+            const CardFunctional = element.addEventListener('click', () => {
 
-            const divElement = element as HTMLDivElement
-            divElement.addEventListener('click', () => {
+                if(url == "/public/img/logo.jpeg"){
 
-                if(divElement.style.display != 'none'){
+                    setUrl("https://cdn.pixabay.com/photo/2020/01/02/06/29/goku-4735092_1280.jpg")
 
-                    divElement.style.display = 'none'
-                    cardFrontElements[index].style.display = 'flex'
-                    
+                }else if(url == "https://cdn.pixabay.com/photo/2020/01/02/06/29/goku-4735092_1280.jpg"){
+
+                    setUrl("/public/img/logo.jpeg")
+
                 }
+
             })
+
+
         }) 
-    }
 
     return( 
 
         <>
             <div className="card-front" >
 
-                <img src="https://cdn.pixabay.com/photo/2020/01/02/06/29/goku-4735092_1280.jpg" alt="image not found" className='image-person' />
-                <p className='name-person'>Goku</p>
-
-            </div>
-
-            <div className="card-back" >
-
-                <img src="./public/img/logo.jpeg" alt="image not found" />
+                <img src={url} alt="image not found" className='image-person' />
+                {/* <p className='name-person'>Goku</p> */}
 
             </div>
         </>
@@ -54,3 +44,4 @@ const Card = () => {
 }
 
 export default Card
+//https://cdn.pixabay.com/photo/2020/01/02/06/29/goku-4735092_1280.jpg
