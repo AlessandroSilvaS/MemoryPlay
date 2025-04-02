@@ -1,15 +1,19 @@
     import '../style/Stylecompo/card.css'
+    import React from 'react';
     import { useState } from 'react'
 
-    const Card = () => {
+    interface CardProp{
+        personUrl: string
+        personName?: string
+    }
 
-        const [url, setUrl] = useState("/public/img/logo.jpeg");
+    const Card: React.FC<CardProp> = ({personUrl}) => {
+
+        const [url, setUrl] = useState('./logo.jpeg');
 
             const changeImage = () => {
 
-                setUrl(prevUrl => prevUrl == "img/logo.jpeg" ? "./public/img/Gohan.jpep" : "img/logo.jpeg"
-
-
+                setUrl(prevUrl => prevUrl == "./logo.jpeg" ? personUrl + ".jpeg" : "./logo.jpeg"
 
                 )
             }
