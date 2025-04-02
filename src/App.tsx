@@ -4,30 +4,32 @@ import Card from './components/Card'
 
 const personNamesArray = ['Goku', 'Goku', 'Gohan', 'Gohan', 'Kuririn', 'Kuririn', 'Vegeta', 'Vegeta', 'Piccolo', 'Piccolo', 'shenlong', 'shenlong']
 
-const showCards = personNamesArray.map((element: string) => {
+let mixedPersonNamesArray: any = []
 
-  let numberChoisends: Array<number> = []
+for(let x: number = 0; x <= 12; x++){
 
-  while(numberChoisends.length <= personNamesArray.length){
+  let indexNumber = Math.floor(Math.random() * 12)
 
-    let indexElements: number = Math.floor(Math.random() * 13)
+  if(mixedPersonNamesArray.includes(personNamesArray[indexNumber]) == false){
 
-    if(numberChoisends.includes(indexElements) == false){
+    mixedPersonNamesArray.push(personNamesArray[indexNumber])
 
-      numberChoisends.push(indexElements)
+  }else{
 
-      return <Card key={indexElements} personUrl={element}/>
-    }
-
+    x--
+    
   }
-})
+}
+
+console.log(mixedPersonNamesArray)
+
 
 function App() {
 
   return (
     <>
     <div className="grid">
-      {showCards}
+      {/* {showCards} */}
     </div>
 
     </>
