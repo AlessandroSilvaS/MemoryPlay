@@ -2,38 +2,45 @@ import './style/App.css'
 
 import Card from './components/Card'
 
-const personNamesArray = ['Goku', 'Goku', 'Gohan', 'Gohan', 'Kuririn', 'Kuririn', 'Vegeta', 'Vegeta', 'Piccolo', 'Piccolo', 'shenlong', 'shenlong']
+const personNamesArray:Array<string | number> = ['Goku', 'Goku', 'Gohan', 'Gohan', 'Kuririn', 'Kuririn', 'Vegeta', 'Vegeta', 'Piccolo', 'Piccolo', 'shenlong', 'shenlong']
 
 let mixedPersonNamesArray: any = []
 
-for(let x: number = 0; x <= 12; x++){
+function mixeArray(originArray:Array<string | number>){
 
-  let indexNumber = Math.floor(Math.random() * 12)
+  const finalyArray:Array<string | number> = [...originArray]
 
-  if(mixedPersonNamesArray.includes(personNamesArray[indexNumber]) == false){
-
-    mixedPersonNamesArray.push(personNamesArray[indexNumber])
-
-  }else{
-
-    x--
-    
+  for(let x:number = originArray.length - 1; x > 0; x-- ){
+  
+    const randonNumber: number = Math.floor(Math.random() * (x + 1))
+  
+    finalyArray[x], originArray[randonNumber] = finalyArray[randonNumber], originArray[x]
+  
   }
+
+  return finalyArray
+
 }
 
-console.log(mixedPersonNamesArray)
+mixedPersonNamesArray = mixeArray(personNamesArray)
 
+const showCards = mixedPersonNamesArray.map((element: string, index: number) => {
+
+    return <Card key={index} personUrl={element}/>
+
+})
 
 function App() {
 
   return (
     <>
     <div className="grid">
-      {/* {showCards} */}
+      {showCards}
     </div>
 
     </>
   )
+
 }
 
 export default App
