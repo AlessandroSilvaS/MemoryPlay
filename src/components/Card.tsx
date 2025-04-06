@@ -4,18 +4,31 @@
 
     interface CardProp{
         personUrl: string
-        personName?: string
+        changeImageDecisior: boolean
     }
 
-    const Card: React.FC<CardProp> = ({personUrl}) => {
+    const Card: React.FC<CardProp> = ({personUrl, changeImageDecisior}) => {
 
         const [url, setUrl] = useState('./logo.jpeg');
 
-            const changeImage = () => {
+        function delay(ms: number){
 
-                setUrl(prevUrl => prevUrl == "./logo.jpeg" ? personUrl + ".jpeg" : "./logo.jpeg"
+            return new Promise(resolve => setTimeout(resolve, ms))
 
-                )
+        }
+
+            const changeImage = async () => {
+
+                if(changeImageDecisior == true){
+
+                    setUrl( personUrl + ".jpeg")
+
+                    await delay(950)
+
+                    setUrl('./logo.jpeg')
+                }
+
+                
             }
 
         return( 

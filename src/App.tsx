@@ -1,23 +1,22 @@
 import './style/App.css'
-
 import Card from './components/Card'
 
 const personNamesArray:Array<string | number> = ['Goku', 'Goku', 'Gohan', 'Gohan', 'Kuririn', 'Kuririn', 'Vegeta', 'Vegeta', 'Piccolo', 'Piccolo', 'shenlong', 'shenlong']
 
-  let mixedPersonNamesArray: any = []
+  let mixedPersonNamesArray:any = [...personNamesArray]
 
-  for(let x:number = personNamesArray.length; x > 0; x--){
+  for(let x:number = personNamesArray.length - 1; x > 0; x--){
 
     const randomIndex: number = Math.floor(Math.random() * (x + 1))
+    const temp = mixedPersonNamesArray[x]
+    mixedPersonNamesArray[x] = mixedPersonNamesArray[randomIndex]
+    mixedPersonNamesArray[randomIndex] = temp
 
-    mixedPersonNamesArray.push(personNamesArray[randomIndex])
   }
-
-
 
 const showCards = mixedPersonNamesArray.map((element: string, index: number) => {
 
-    return <Card key={index} personUrl={element}/>
+    return <Card key={index} personUrl={element} changeImageDecisior={true  }/>
 
 })
 
@@ -30,7 +29,6 @@ function App() {
       </div>
     </>
   )
-
 }
 
 export default App
